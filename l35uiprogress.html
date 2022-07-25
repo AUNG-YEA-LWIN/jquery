@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./libs/jquery-ui-1.13.1/jquery-ui.min.css">
+	<title>UI Progress Method</title>
+	<style type="text/css">
+		
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #f4f4f4;
+		}
+
+		.container{
+			width: 700px;
+		}
+
+		#progress2{
+			position: relative;
+		}
+
+		.progresslabel{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+
+			transform: translate(-50%,-50%);
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1>HTML</h1>
+		<div id="progress1">
+			
+		</div>
+
+		<h1>CSS</h1>
+		<div id="progress2">
+			<span class="progresslabel">20%</span>
+		</div>
+
+		<h1>jQuery</h1>
+		<div id="progress3">
+			
+		</div>
+
+		<h1>Javascript</h1>
+		<div id="progress4">
+			
+		</div>
+
+		<h1>Bootstrap</h1>
+		<div id="progress5">
+			
+		</div>
+	</div>
+
+<script type="text/javascript" src="./libs/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./libs/jquery-ui-1.13.1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		// console.log('hi');
+
+		$('#progress1').progressbar({
+			value: 30
+		});
+
+		
+
+		$('#progress2').progressbar({
+			value: 20
+		});
+
+
+
+
+		$('#progress3').progressbar({
+			value: 80
+		}).css({
+			'backgroundColor': 'red'
+		});
+
+		$('#progress3 > div').css('background-color','steelblue');
+
+
+
+
+		$('#progress4').css({
+			backgroundColor: 'steelblue',
+			height: '20px'
+		}).progressbar({
+			value: 50
+		});
+
+		$('#progress4 > div').css('background-color','red');
+
+
+
+		$('#progress5').progressbar({
+			value: 45
+		}).css({
+			// 'background': `radial-gradient(
+			// 	silver,
+			// 	skyblue
+			// )`
+
+			'background-image': "url('./img/arrow.png')",
+			'background-repeat': "repeat-x",
+			'background-size': "100px",
+			'background-positon': 'center'
+		});
+
+		$('#progress5 > div').css('background-color','orange');
+
+
+	});
+
+</script>
+</body>
+</html>

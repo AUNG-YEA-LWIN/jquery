@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>:form Selector</title>
+
+    <style type="text/css">
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            width: 700px;
+            background-color: #f4f4f4;
+            box-shadow: 0 5px 10px #999;
+
+            padding: 20px;
+        }
+
+        .form-group{
+            margin: 10px;
+        }
+
+        .form-group label{
+            font-size: 18px;
+        }
+
+        .form-control{
+            width: 100%;
+            font-size: 16px;
+            background-color: #f4f4f4;
+            border: none;
+            outline: 0;
+            border-bottom: 1px solid #999;
+            padding: 5px;
+        }
+
+        /*.form-control:focus{
+            border-bottom: 1px dashed steelblue;
+        }*/
+
+        .form-check{
+            display: flex;
+        }
+
+        .btn{
+            font-size: 15px;
+            background: none;
+            border: 1px solid #999;
+            border-radius: 10px;
+            padding: 5px 8px;
+            margin: 3px;
+        }
+
+
+        .justify-content-end{
+            display: flex;
+            justify-content: end;
+            margin: 0 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <img src="./img/arrow.png" alt="arrow" width="200px" />
+
+        <form action="" method="" enctype="multipart/form-data">
+
+            <div>
+                <input type="image" src="./img/arrow.png">
+            </div>
+
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" id="firstname" class="form-control" autocomplete="off" />
+            </div>
+            
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" id="lastname" class="form-control" autocomplete="off" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" autocomplete="off" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" autocomplete="off" />
+            </div>
+
+            <div class="form-group form-check">
+                <label for="">Fav Color</label>
+                <input type="checkbox" name="favcolor" id="favcolorred" class="form-check-input" value="red" /><label for="favcolorred">Red</label>
+                <input type="checkbox" name="favcolorred" id="favcolorgn" class="form-check-input" value="green" /><label for="favcolorgn">Green</label>
+                <input type="checkbox" name="favcolorbl" id="favcolor" class="form-check-input" value="blue" /><label for="favcolorbl">Blue</label>
+            </div>
+            
+
+            <div class="form-group form-check">
+                <label>Gender</label>
+                <input type="radio" name="gender" id="male" class="form-check-input" value="m" /><label for="male">Male</label>
+                <input type="radio" name="gender" id="female" class="form-check-input" value="f" /><label for="female">Female</label>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select name="country" id="country" class="form-control">
+                    <option selected disabled>Choose Country</option>
+                    <option value="mm">Myanmar</option>
+                    <option value="thai">Thiland</option>
+                    <option value="indo">Indonesia</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="nrc">NRC</label>
+                <input type="file" name="nrc" id="nrc" class="form-control" />
+            </div>
+
+
+           <div class="form-group">
+               <span title="formember">Already Register ???</span><a href="#" id="loginlink" title="formember">Login Here !!!</a>
+               <p title="forthx">Thank you for paying attention</p>
+           </div>
+
+           <div class="form-group">
+               <input type="checkbox" name="agree" id="agree" class="form-check-input" />
+               <label for="agree">I agreed all above regulation.</label>
+           </div>
+
+           <div class="justify-content-end">
+                <input type="reset" class="btn" value="Reset" />
+                <button type="submit" class="btn">Submit</button>
+           </div>
+
+        </form>
+    </div>
+    
+    <script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            // console.log('hi');6945739871
+
+            //input tag(not include button)
+            // $('input').css({
+            //     'backgroundColor': 'yellow',
+            //     'border': '1px dashed red'
+            // });
+
+            // :input tag(include button)
+            // $(':input').css({
+            //     'backgroundColor':'yellow',
+            //     'border': '1px dashed red'
+            // });
+
+            // :text
+            // $(':text').css({
+            //     'backgroundColor':'yellow',
+            //     'border': '1px dashed red'
+            // });
+
+            // :password
+            // $(':password').css({
+            //     'backgroundColor':'yellow',
+            //     'border': '1px dashed red'
+            // });
+
+            // :checkbox
+            // $(':checkbox').css({
+            //     'accentColor': 'red',
+            // });
+
+            // :radio
+            // $(':radio').css({
+            //     'accentColor': 'red',
+            // });
+
+
+            //checked for checkbox
+            // $('input[type=checkbox]').click(function() {
+            //     // console.log('clicked');
+
+            //     if($('input[name=favcolor]').is(':checked')){
+            //         console.log('favColor checked');
+            //     }else {
+            //         console.log('favColor not checked yet');
+            //     }
+            // });
+
+            $('input[type=checkbox]').click(function() {
+                if($(this).val() === 'red') {
+                    console.log($(this).is(':checked') ? 'My Fav Color is red' : 'Sorry My Fav Color is not red');
+                }else if($(this).val() === 'green') {
+                    console.log($(this).is(':checked') ? 'My Fav Color is green': 'Sorry My Fav Color is not green');
+                }else if($(this).val() === 'blue') {
+                    console.log($(this).is(':checked') ? 'My Fav Color is blue': 'Sorry My Fav Color is not blue');
+                }
+            });
+
+            // $('input[type=radio]').click(function() {
+            //     if($('input[name=gender]').is(':checked')) {
+            //         console.log('Gender Checked');
+            //     }
+            // });
+
+            $('input[type=radio]').click(function() {
+                if($(this).val() === 'm') {
+                    console.log('I am male');
+                }else {
+                    console.log('I am female');
+                }
+            });
+
+            // : selected
+
+            $('#country').change(function() {
+                // console.log('hi');
+
+                // var getcountry = $(this);
+                // console.log(getcountry.val());
+                // console.log(getcountry.text());
+
+                // var getcountry = $(':selected');
+                // var getcountry = $('#country :selected');
+                var getcountry = $('#country option:selected');
+                console.log(getcountry.val());
+                console.log(getcountry.text());
+            });
+
+            //:file
+            // $(':file').css({
+            //     'backgroundColor':'yellow',
+            //     'border': '1px dashed red'
+            // });
+
+            //:image
+            $(':image').css('width','100px');
+
+            //:reset
+            $(':reset').css('backgroundColor','orange');
+            $(':reset').click(function(e) {
+                console.log('Hello, I am reset button');
+                e.preventDefault();
+            });
+
+            //:submit
+            $(':submit').css('backgroundColor','violet');
+
+
+            //button
+            $(':button').click(function(e) {
+                console.log('Hello, I am submit button');
+                e.preventDefault();
+            });
+
+            // $('[id]').css('color','red');
+            // $("[class]").css("color","steelblue");
+            // $("[title]").css("color","orange");
+
+            $("[title='formember']").css("color","red");
+            $("[title='forthx']").css("color","grey");
+
+            $("span[title]").css("color","green");
+            $("a[title]").css("color","cyan");
+            $("p[title]").css("color","blue");
+
+            $("[title='forthx']").css("color","violet");
+
+            $("#agree").click(function(){
+                if($(this).is(":checked")){
+                    $("[type='submit'").removeAttr("disabled");
+                }else {
+                    // $("[type='submit'").attr('disabled','disabled');
+                    $("[type='submit'").attr('disabled',true);
+                }
+
+                
+            });
+
+
+
+
+        });
+
+
+    </script>
+</body>
+</html>
+<!-- Footer -->
